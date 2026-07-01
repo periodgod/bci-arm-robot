@@ -1,0 +1,18 @@
+name: bciwork_1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - scipy
+  - scikit-learn
+  - mne
+  - joblib
+  - pyqt=6
+  - pybullet=3.25
+  - pyqtgraph
+  - pyopengl
+  - pylsl
+# GPU PyTorch is installed by setup_conda_env.ps1 because the best CUDA wheel
+# depends on the local NVIDIA driver version.

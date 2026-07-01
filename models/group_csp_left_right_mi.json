@@ -1,0 +1,83 @@
+{
+  "model_type": "binary_mi_reflection_group_csp_lda",
+  "model_name": "C2 reflection-group CSP + shrinkage LDA",
+  "sampling_rate_hz": 160,
+  "window_samples": 480,
+  "input_channel_names": [
+    "C3",
+    "C4",
+    "Cz",
+    "FC1",
+    "FC2",
+    "CP1",
+    "CP2",
+    "FC5",
+    "FC6",
+    "CP5",
+    "CP6"
+  ],
+  "selected_channel_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "labels": [
+    "left_hand_mi",
+    "right_hand_mi"
+  ],
+  "group": "C2 sagittal reflection with class-label swap",
+  "group_eta": 1.0,
+  "components": 8,
+  "source_subjects": [
+    "S001",
+    "S002",
+    "S003",
+    "S004",
+    "S005",
+    "S006",
+    "S007",
+    "S008",
+    "S009",
+    "S010",
+    "S011",
+    "S012",
+    "S013",
+    "S014",
+    "S015",
+    "S016",
+    "S017",
+    "S018",
+    "S019",
+    "S020",
+    "S021",
+    "S022",
+    "S023",
+    "S024",
+    "S025",
+    "S026",
+    "S027",
+    "S028",
+    "S029",
+    "S030"
+  ],
+  "training_trials": 1350,
+  "preprocessing": {
+    "reference": "CAR over deployment motor channels",
+    "bandpass_hz": [
+      8.0,
+      30.0
+    ]
+  },
+  "spatial_filter_shape": [
+    8,
+    11
+  ]
+}

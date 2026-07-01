@@ -1,0 +1,5 @@
+data/
+*.mat *.npy *.npz *.zip *.whl *.pth *.pt
+__pycache__/ *.pyc .venv/ .idea/ .vscode/ logs/ *.log
+models/ *.joblib *.pkl *.onnx
+*.ipynb

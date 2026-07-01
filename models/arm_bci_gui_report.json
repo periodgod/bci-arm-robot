@@ -1,0 +1,162 @@
+{
+  "model": "e:\\世界机器人大赛\\projects\\arm_bci_robot\\models\\arm_bci_gui.joblib",
+  "data": [
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-06-25\\21-22-30_session.npz"
+  ],
+  "signal_config": {
+    "fs": 250,
+    "eeg_channels": [
+      "Fp1",
+      "Fp2",
+      "F3",
+      "F4",
+      "C3",
+      "C4",
+      "P3",
+      "P4",
+      "O1",
+      "O2",
+      "F7",
+      "F8",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "Fz",
+      "Cz",
+      "Pz",
+      "Oz",
+      "FC1",
+      "FC2",
+      "CP1",
+      "CP2",
+      "FC5",
+      "FC6",
+      "CP5",
+      "CP6",
+      "AF3",
+      "AF4",
+      "PO3",
+      "PO4"
+    ],
+    "window_seconds": 1.0,
+    "step_seconds": 0.2,
+    "calibration_trial_seconds": 4.0,
+    "max_windows_per_trial": 8,
+    "notch_hz": 50.0,
+    "use_csp": true,
+    "csp_components": 4,
+    "filter_bands": [
+      [
+        8.0,
+        12.0
+      ],
+      [
+        12.0,
+        16.0
+      ],
+      [
+        16.0,
+        20.0
+      ],
+      [
+        20.0,
+        24.0
+      ],
+      [
+        24.0,
+        30.0
+      ],
+      [
+        30.0,
+        40.0
+      ]
+    ]
+  },
+  "decoder_config": {
+    "eeg_weight": 0.55,
+    "aux_weight_cap": 0.45,
+    "command_confidence": 0.62,
+    "min_margin": 0.08,
+    "stable_windows": 2,
+    "history_windows": 5,
+    "refractory_seconds": 0.25,
+    "command_duration_seconds": 0.55,
+    "artifact_z_threshold": 9.0
+  },
+  "metrics": {},
+  "paradigm": {
+    "forward": {
+      "action": "前进",
+      "modality": "咬肌+MI",
+      "region": "右侧咬肌 + C4",
+      "masseter_task": "咬住右边后槽牙",
+      "mi_task": "想象左手握拳/用力",
+      "subject_task": "咬住右边，同时想象左手握拳；对应机械臂前进",
+      "feature": "右咬肌选择前后轴，左手 MI 选择前进方向"
+    },
+    "backward": {
+      "action": "后退",
+      "modality": "咬肌+MI",
+      "region": "右侧咬肌 + C3",
+      "masseter_task": "咬住右边后槽牙",
+      "mi_task": "想象右手握拳/用力",
+      "subject_task": "咬住右边，同时想象右手握拳；对应机械臂后退",
+      "feature": "右咬肌选择前后轴，右手 MI 选择后退方向"
+    },
+    "right": {
+      "action": "向右",
+      "modality": "咬肌+MI",
+      "region": "左侧咬肌 + C3",
+      "masseter_task": "咬住左边后槽牙",
+      "mi_task": "想象右手握拳/用力",
+      "subject_task": "咬住左边，同时想象右手握拳；对应机械臂向右",
+      "feature": "左咬肌选择左右轴，右手 MI 选择向右方向"
+    },
+    "left": {
+      "action": "向左",
+      "modality": "咬肌+MI",
+      "region": "左侧咬肌 + C4",
+      "masseter_task": "咬住左边后槽牙",
+      "mi_task": "想象左手握拳/用力",
+      "subject_task": "咬住左边，同时想象左手握拳；对应机械臂向左",
+      "feature": "左咬肌选择左右轴，左手 MI 选择向左方向"
+    },
+    "up": {
+      "action": "向上",
+      "modality": "咬肌+MI",
+      "region": "双侧咬肌 + C4",
+      "masseter_task": "同时咬住左右两边后槽牙",
+      "mi_task": "想象左手握拳/用力",
+      "subject_task": "同时咬住两边，同时想象左手握拳；对应机械臂向上",
+      "feature": "双侧咬肌选择上下轴，左手 MI 选择向上方向"
+    },
+    "down": {
+      "action": "向下",
+      "modality": "咬肌+MI",
+      "region": "双侧咬肌 + C3",
+      "masseter_task": "同时咬住左右两边后槽牙",
+      "mi_task": "想象右手握拳/用力",
+      "subject_task": "同时咬住两边，同时想象右手握拳；对应机械臂向下",
+      "feature": "双侧咬肌选择上下轴，右手 MI 选择向下方向"
+    },
+    "blink3": {
+      "action": "抓/放状态切换",
+      "modality": "EOG/虚拟眨眼",
+      "region": "眼电/眨眼事件",
+      "masseter_task": "-",
+      "mi_task": "-",
+      "subject_task": "连续眨眼三次，机械臂在抓取状态和释放状态之间切换",
+      "feature": "三次眨眼事件只控制抓握状态，不进入六类移动模型训练"
+    },
+    "rest": {
+      "action": "休息",
+      "modality": "REST",
+      "region": "-",
+      "masseter_task": "-",
+      "mi_task": "-",
+      "subject_task": "放松，不要执行运动想象、咬肌动作或眨眼指令",
+      "feature": "静息状态"
+    }
+  }
+}

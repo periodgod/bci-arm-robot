@@ -1,0 +1,149 @@
+{
+  "model": "e:\\世界机器人大赛\\projects\\arm_bci_robot\\models\\arm_bci_gui.joblib",
+  "data": [
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-06-25\\21-02-39_session.npz",
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-06-25\\21-00-37_session.npz",
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-06-25\\20-56-30_session.npz"
+  ],
+  "metrics": {
+    "window_count": 192,
+    "eeg_only_accuracy": 0.22395833333333334,
+    "eeg_only_kappa": -0.05830127256584805,
+    "labels": [
+      "rest",
+      "up",
+      "down",
+      "left",
+      "right",
+      "forward",
+      "backward"
+    ],
+    "eeg_weight": 0.55,
+    "aux_only_accuracy": 0.20833333333333334,
+    "aux_only_kappa": 0.0010952902519169028,
+    "fusion_accuracy": 0.21875,
+    "fusion_kappa": -0.010951979780960297,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        30
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        22
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        18
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        56
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        34
+      ]
+    ],
+    "classification_report": {
+      "rest": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "up": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 32.0
+      },
+      "down": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 24.0
+      },
+      "left": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 8.0
+      },
+      "right": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 24.0
+      },
+      "forward": {
+        "precision": 0.27586206896551724,
+        "recall": 0.125,
+        "f1-score": 0.17204301075268819,
+        "support": 64.0
+      },
+      "backward": {
+        "precision": 0.2085889570552147,
+        "recall": 0.85,
+        "f1-score": 0.33497536945812806,
+        "support": 40.0
+      },
+      "accuracy": 0.21875,
+      "macro avg": {
+        "precision": 0.06920728943153313,
+        "recall": 0.1392857142857143,
+        "f1-score": 0.07243119717297375,
+        "support": 192.0
+      },
+      "weighted avg": {
+        "precision": 0.13541005570834216,
+        "recall": 0.21875,
+        "f1-score": 0.12713420555467272,
+        "support": 192.0
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "model": "e:\\世界机器人大赛\\projects\\arm_bci_robot\\models\\eeg8_classifier.joblib",
+  "data": [
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-07-01\\13-49-25_active_eeg8_session.npz"
+  ],
+  "signal_config": {
+    "fs": 250,
+    "eeg_channels": [
+      "Fp1",
+      "Fp2",
+      "F3",
+      "F4",
+      "C3",
+      "C4",
+      "P3",
+      "P4",
+      "O1",
+      "O2",
+      "F7",
+      "F8",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "Fz",
+      "Cz",
+      "Pz",
+      "Oz",
+      "FC1",
+      "FC2",
+      "CP1",
+      "CP2",
+      "FC5",
+      "FC6",
+      "CP5",
+      "CP6",
+      "AF3",
+      "AF4",
+      "PO3",
+      "PO4"
+    ],
+    "window_seconds": 1.0,
+    "step_seconds": 0.2,
+    "calibration_trial_seconds": 4.0,
+    "max_windows_per_trial": 8,
+    "notch_hz": 50.0,
+    "use_csp": true,
+    "csp_components": 4,
+    "filter_bands": [
+      [
+        8.0,
+        12.0
+      ],
+      [
+        12.0,
+        16.0
+      ],
+      [
+        16.0,
+        20.0
+      ],
+      [
+        20.0,
+        24.0
+      ],
+      [
+        24.0,
+        30.0
+      ],
+      [
+        30.0,
+        40.0
+      ]
+    ]
+  },
+  "decoder_config": {
+    "eeg_weight": 0.55,
+    "aux_weight_cap": 0.45,
+    "command_confidence": 0.62,
+    "min_margin": 0.08,
+    "stable_windows": 2,
+    "history_windows": 5,
+    "refractory_seconds": 0.25,
+    "command_duration_seconds": 0.55,
+    "artifact_z_threshold": 9.0
+  },
+  "metrics": {
+    "window_count": 33,
+    "n_classes": 8,
+    "eeg_accuracy": 0.1111111111111111,
+    "eeg_kappa": 0.0,
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "C1 左手运动想象",
+      "C2 右手运动想象",
+      "C3 双脚运动想象",
+      "C4 舌头运动想象",
+      "C5 连续减法心算",
+      "C6 静默词语生成",
+      "C7 三维物体心理旋转",
+      "C8 无歌词旋律想象"
+    ]
+  },
+  "class_names": {
+    "1": "C1 左手运动想象",
+    "2": "C2 右手运动想象",
+    "3": "C3 双脚运动想象",
+    "4": "C4 舌头运动想象",
+    "5": "C5 连续减法心算",
+    "6": "C6 静默词语生成",
+    "7": "C7 三维物体心理旋转",
+    "8": "C8 无歌词旋律想象"
+  }
+}
