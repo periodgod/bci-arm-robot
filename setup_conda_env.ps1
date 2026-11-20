@@ -310,20 +310,24 @@ if not system_file.exists():
 py_compile.compile(str(system_file), doraise=True)
 print("OK: arm_bci_system.py compiles")
 
-from arm_bci_system import GRIP_TOGGLE_LABEL, MI8_PARADIGM, SignalConfig, HybridBCIModel
+from arm_bci.core import DecoderConfig, SignalConfig
+from arm_bci.domain import EEG8Model
+from arm_bci.eeg8_system import EEG8_TASKS
 
-movement_labels = [label for label in MI8_PARADIGM if label not in {"rest", GRIP_TOGGLE_LABEL}]
-if len(movement_labels) != 6:
-    raise SystemExit(f"ERROR: expected 6 active masseter+MI movement labels, got {len(movement_labels)}.")
-if GRIP_TOGGLE_LABEL not in MI8_PARADIGM:
-    raise SystemExit("ERROR: expected triple-blink grip-toggle paradigm entry.")
+if len(EEG8_TASKS) != 8:
+    raise SystemExit(f"ERROR: expected 8 EEG8 tasks, got {len(EEG8_TASKS)}.")
+if {int(task["class_id"]) for task in EEG8_TASKS} != set(range(1, 9)):
+    raise SystemExit("ERROR: EEG8 task ids must be C1-C8.")
 
 config = SignalConfig()
 if abs(config.calibration_trial_seconds - 4.0) > 1e-9:
     raise SystemExit("ERROR: expected default collection/execution window to be 4.0 seconds.")
 
-print(f"OK: movement labels = {', '.join(movement_labels)}")
-print(f"OK: grip toggle label = {GRIP_TOGGLE_LABEL}")
+model = EEG8Model(config, DecoderConfig())
+if model.eeg_classifier is not None:
+    raise SystemExit("ERROR: a new EEG8 model must not contain a fitted classifier.")
+
+print("OK: EEG8 task ids = C1-C8")
 print("OK: default collection/execution window = 4.0s")
 
 print("Environment verification finished.")

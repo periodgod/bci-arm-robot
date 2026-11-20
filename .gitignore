@@ -1,5 +1,35 @@
+# Local data and generated artifacts
 data/
-*.mat *.npy *.npz *.zip *.whl *.pth *.pt
-__pycache__/ *.pyc .venv/ .idea/ .vscode/ logs/ *.log
-models/ *.joblib *.pkl *.onnx
+logs/
+outputs/
+models/
+config/gui_defaults.json
+
+# Large binary or model artifacts
+*.mat
+*.npy
+*.npz
+*.zip
+*.whl
+*.pth
+*.pt
+*.joblib
+*.pkl
+*.onnx
+
+# Python and IDE caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.idea/
+.vscode/
+
+# Logs and notebooks
+*.log
 *.ipynb
+
+# Local archive scratch space
+_archive/

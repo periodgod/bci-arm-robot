@@ -1,50 +1,315 @@
 {
   "model": "e:\\世界机器人大赛\\projects\\arm_bci_robot\\models\\arm_bci_gui.joblib",
   "data": [
-    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-06-25\\21-22-30_session.npz"
+    "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-07-26\\12-27-01_pure_mi.npz"
   ],
+  "algorithm": "FilterBank BandPower + ExtraTrees（8模型自动优选）",
+  "strategies": {
+    "label_contract": {
+      "name": "EEG8 C1-C8 动作分类",
+      "key": "eeg8_c1_c8",
+      "runtime_compatible": true,
+      "description": "训练、评估与在线控制固定使用 C1-C8；不提供静息或派生标签路径。",
+      "class_labels": [
+        "C1 左移",
+        "C2 右移",
+        "C3 前移",
+        "C4 后移",
+        "C5 上移",
+        "C6 下移",
+        "C7 抓取",
+        "C8 释放"
+      ]
+    },
+    "feature": "bandpower",
+    "validation": "stratified_cv",
+    "classifier": "extra_trees",
+    "classifier_selection": "automatic_best_of_all_gui_models",
+    "model_comparison": [
+      {
+        "classifier": "extra_trees",
+        "classifier_label": "ExtraTrees",
+        "feature": "bandpower",
+        "accuracy": 0.6,
+        "kappa": 0.19999999999999996,
+        "minimum_class_accuracy": 0.5,
+        "class_accuracy": [
+          0.7,
+          0.5
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          1.0,
+          0.75
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      },
+      {
+        "classifier": "vote",
+        "classifier_label": "Soft Voting",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "lda",
+        "classifier_label": "LDA shrinkage",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "logreg",
+        "classifier_label": "Logistic Regression",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "gaussian_nb",
+        "classifier_label": "GaussianNB",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.4,
+          0.7
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          0.75,
+          0.75
+        ],
+        "confusion_matrix": [
+          [
+            4,
+            6
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      },
+      {
+        "classifier": "fbcsp_lda",
+        "classifier_label": "FBCSP + LDA",
+        "feature": "fbcsp",
+        "accuracy": 0.45,
+        "kappa": -0.10000000000000009,
+        "minimum_class_accuracy": 0.2,
+        "class_accuracy": [
+          0.2,
+          0.7
+        ],
+        "fold_accuracy": [
+          0.25,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      },
+      {
+        "classifier": "random_forest",
+        "classifier_label": "RandomForest",
+        "feature": "bandpower",
+        "accuracy": 0.4,
+        "kappa": -0.19999999999999996,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.4,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.25,
+          0.5,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "svm",
+        "classifier_label": "RBF-SVM",
+        "feature": "bandpower",
+        "accuracy": 0.35,
+        "kappa": -0.30000000000000004,
+        "minimum_class_accuracy": 0.3,
+        "class_accuracy": [
+          0.3,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "confusion_matrix": [
+          [
+            3,
+            7
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      }
+    ],
+    "runtime_compatible": true
+  },
   "signal_config": {
     "fs": 250,
     "eeg_channels": [
-      "Fp1",
-      "Fp2",
-      "F3",
-      "F4",
-      "C3",
-      "C4",
-      "P3",
-      "P4",
-      "O1",
-      "O2",
-      "F7",
-      "F8",
-      "T3",
-      "T4",
-      "T5",
-      "T6",
-      "Fz",
-      "Cz",
-      "Pz",
-      "Oz",
-      "FC1",
-      "FC2",
-      "CP1",
-      "CP2",
-      "FC5",
-      "FC6",
-      "CP5",
-      "CP6",
-      "AF3",
-      "AF4",
-      "PO3",
-      "PO4"
+      "EEG 1_1",
+      "EEG 1_2",
+      "EEG 1_3",
+      "EEG 1_4",
+      "EEG 1_5",
+      "EEG 1_6",
+      "EEG 1_7",
+      "EEG 1_8",
+      "EEG 1_9",
+      "EEG 1_10",
+      "EEG 1_11",
+      "EEG 1_12",
+      "EEG 1_13",
+      "EEG 1_14",
+      "EEG 1_15",
+      "EEG 1_16",
+      "EEG 1_17",
+      "EEG 1_18",
+      "EEG 1_19",
+      "EEG 1_20",
+      "EEG 1_21",
+      "EEG 1_22",
+      "EEG 1_23",
+      "EEG 1_24",
+      "EEG 1_25",
+      "EEG 1_26",
+      "EEG 1_27",
+      "EEG 1_28",
+      "EEG 1_29",
+      "EEG 1_30",
+      "EEG 1_31",
+      "EEG 1_32"
     ],
-    "window_seconds": 1.0,
-    "step_seconds": 0.2,
+    "window_seconds": 2.0,
+    "step_seconds": 2.0,
+    "aux_channel_names": [
+      "AUX 2_1",
+      "AUX 2_2",
+      "AUX 2_3",
+      "AUX 2_4"
+    ],
+    "masseter_gate_capable": true,
     "calibration_trial_seconds": 4.0,
     "max_windows_per_trial": 8,
     "notch_hz": 50.0,
-    "use_csp": true,
+    "use_csp": false,
     "csp_components": 4,
     "filter_bands": [
       [
@@ -76,87 +341,412 @@
   "decoder_config": {
     "eeg_weight": 0.55,
     "aux_weight_cap": 0.45,
-    "command_confidence": 0.62,
-    "min_margin": 0.08,
-    "stable_windows": 2,
-    "history_windows": 5,
+    "command_confidence": 0.0,
+    "min_margin": 0.0,
+    "stable_windows": 1,
+    "history_windows": 1,
     "refractory_seconds": 0.25,
     "command_duration_seconds": 0.55,
-    "artifact_z_threshold": 9.0
-  },
-  "metrics": {},
-  "paradigm": {
-    "forward": {
-      "action": "前进",
-      "modality": "咬肌+MI",
-      "region": "右侧咬肌 + C4",
-      "masseter_task": "咬住右边后槽牙",
-      "mi_task": "想象左手握拳/用力",
-      "subject_task": "咬住右边，同时想象左手握拳；对应机械臂前进",
-      "feature": "右咬肌选择前后轴，左手 MI 选择前进方向"
-    },
-    "backward": {
-      "action": "后退",
-      "modality": "咬肌+MI",
-      "region": "右侧咬肌 + C3",
-      "masseter_task": "咬住右边后槽牙",
-      "mi_task": "想象右手握拳/用力",
-      "subject_task": "咬住右边，同时想象右手握拳；对应机械臂后退",
-      "feature": "右咬肌选择前后轴，右手 MI 选择后退方向"
-    },
-    "right": {
-      "action": "向右",
-      "modality": "咬肌+MI",
-      "region": "左侧咬肌 + C3",
-      "masseter_task": "咬住左边后槽牙",
-      "mi_task": "想象右手握拳/用力",
-      "subject_task": "咬住左边，同时想象右手握拳；对应机械臂向右",
-      "feature": "左咬肌选择左右轴，右手 MI 选择向右方向"
-    },
-    "left": {
-      "action": "向左",
-      "modality": "咬肌+MI",
-      "region": "左侧咬肌 + C4",
-      "masseter_task": "咬住左边后槽牙",
-      "mi_task": "想象左手握拳/用力",
-      "subject_task": "咬住左边，同时想象左手握拳；对应机械臂向左",
-      "feature": "左咬肌选择左右轴，左手 MI 选择向左方向"
-    },
-    "up": {
-      "action": "向上",
-      "modality": "咬肌+MI",
-      "region": "双侧咬肌 + C4",
-      "masseter_task": "同时咬住左右两边后槽牙",
-      "mi_task": "想象左手握拳/用力",
-      "subject_task": "同时咬住两边，同时想象左手握拳；对应机械臂向上",
-      "feature": "双侧咬肌选择上下轴，左手 MI 选择向上方向"
-    },
-    "down": {
-      "action": "向下",
-      "modality": "咬肌+MI",
-      "region": "双侧咬肌 + C3",
-      "masseter_task": "同时咬住左右两边后槽牙",
-      "mi_task": "想象右手握拳/用力",
-      "subject_task": "同时咬住两边，同时想象右手握拳；对应机械臂向下",
-      "feature": "双侧咬肌选择上下轴，右手 MI 选择向下方向"
-    },
-    "blink3": {
-      "action": "抓/放状态切换",
-      "modality": "EOG/虚拟眨眼",
-      "region": "眼电/眨眼事件",
-      "masseter_task": "-",
-      "mi_task": "-",
-      "subject_task": "连续眨眼三次，机械臂在抓取状态和释放状态之间切换",
-      "feature": "三次眨眼事件只控制抓握状态，不进入六类移动模型训练"
-    },
-    "rest": {
-      "action": "休息",
-      "modality": "REST",
-      "region": "-",
-      "masseter_task": "-",
-      "mi_task": "-",
-      "subject_task": "放松，不要执行运动想象、咬肌动作或眨眼指令",
-      "feature": "静息状态"
+    "artifact_z_threshold": 9.0,
+    "masseter_gate_enabled": true,
+    "masseter_left_count": 1,
+    "masseter_right_count": 1,
+    "masseter_bite_ratio": 8.0,
+    "masseter_side_ratio": 1.3,
+    "masseter_detector": "threshold",
+    "masseter_template_path": "e:\\世界机器人大赛\\projects\\arm_bci_robot\\models\\masseter_ncc_templates.json",
+    "masseter_ncc_min_score": 0.45,
+    "masseter_ncc_min_margin": 0.08,
+    "confirmation_window_seconds": 0.95,
+    "confirmation_masseter_count": 1,
+    "masseter_outside_candidate_weight": 0.0,
+    "candidate_random_margin": 0.05,
+    "continuous_move_speed": 0.2,
+    "continuous_blink_window_seconds": 1.0,
+    "continuous_blink_count": 8,
+    "masseter_state_detectors": {
+      "00": "threshold",
+      "01": "ncc",
+      "10": "ncc",
+      "11": "ncc"
     }
+  },
+  "metrics": {
+    "validation": "5-fold cross validation",
+    "requested_folds": 5,
+    "n_classes": 2,
+    "label_contract": {
+      "name": "EEG8 C1-C8 动作分类",
+      "key": "eeg8_c1_c8",
+      "runtime_compatible": true,
+      "description": "训练、评估与在线控制固定使用 C1-C8；不提供静息或派生标签路径。",
+      "class_labels": [
+        "C1 左移",
+        "C2 右移",
+        "C3 前移",
+        "C4 后移",
+        "C5 上移",
+        "C6 下移",
+        "C7 抓取",
+        "C8 释放"
+      ],
+      "kept_epochs": 20,
+      "dropped_epochs": 0
+    },
+    "runtime_compatible": true,
+    "paradigm_key": "pure_mi_binary",
+    "labels": [
+      "C1 左移",
+      "C2 右移"
+    ],
+    "class_labels": [
+      "C1 左移",
+      "C2 右移"
+    ],
+    "fold_labels": [
+      "Fold 1",
+      "Fold 2",
+      "Fold 3",
+      "Fold 4",
+      "Fold 5"
+    ],
+    "fold_accuracy": [
+      0.5,
+      0.5,
+      0.25,
+      1.0,
+      0.75
+    ],
+    "fold_kappa": [
+      0.0,
+      0.0,
+      -0.5,
+      1.0,
+      0.5
+    ],
+    "eeg_accuracy": 0.6,
+    "eeg_kappa": 0.19999999999999996,
+    "overall_accuracy": 0.6,
+    "kappa": 0.19999999999999996,
+    "class_accuracy": [
+      0.7,
+      0.5
+    ],
+    "confusion_matrix": [
+      [
+        7,
+        3
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "window_count": 20,
+    "model_comparison": [
+      {
+        "classifier": "extra_trees",
+        "classifier_label": "ExtraTrees",
+        "feature": "bandpower",
+        "accuracy": 0.6,
+        "kappa": 0.19999999999999996,
+        "minimum_class_accuracy": 0.5,
+        "class_accuracy": [
+          0.7,
+          0.5
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          1.0,
+          0.75
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      },
+      {
+        "classifier": "vote",
+        "classifier_label": "Soft Voting",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "lda",
+        "classifier_label": "LDA shrinkage",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "logreg",
+        "classifier_label": "Logistic Regression",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.7,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.75,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "gaussian_nb",
+        "classifier_label": "GaussianNB",
+        "feature": "bandpower",
+        "accuracy": 0.55,
+        "kappa": 0.09999999999999998,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.4,
+          0.7
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          0.75,
+          0.75
+        ],
+        "confusion_matrix": [
+          [
+            4,
+            6
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      },
+      {
+        "classifier": "fbcsp_lda",
+        "classifier_label": "FBCSP + LDA",
+        "feature": "fbcsp",
+        "accuracy": 0.45,
+        "kappa": -0.10000000000000009,
+        "minimum_class_accuracy": 0.2,
+        "class_accuracy": [
+          0.2,
+          0.7
+        ],
+        "fold_accuracy": [
+          0.25,
+          0.75,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      },
+      {
+        "classifier": "random_forest",
+        "classifier_label": "RandomForest",
+        "feature": "bandpower",
+        "accuracy": 0.4,
+        "kappa": -0.19999999999999996,
+        "minimum_class_accuracy": 0.4,
+        "class_accuracy": [
+          0.4,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.25,
+          0.5,
+          0.25,
+          0.5,
+          0.5
+        ],
+        "confusion_matrix": [
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "classifier": "svm",
+        "classifier_label": "RBF-SVM",
+        "feature": "bandpower",
+        "accuracy": 0.35,
+        "kappa": -0.30000000000000004,
+        "minimum_class_accuracy": 0.3,
+        "class_accuracy": [
+          0.3,
+          0.4
+        ],
+        "fold_accuracy": [
+          0.5,
+          0.5,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "confusion_matrix": [
+          [
+            3,
+            7
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      }
+    ],
+    "selected_classifier": "extra_trees",
+    "selected_classifier_label": "ExtraTrees",
+    "data_contract": {
+      "recording_contract_version": 2,
+      "eeg_channel_count": 32,
+      "eeg_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "raw_channel_count": 43,
+      "eeg_channel_names_inferred": false,
+      "aux_indices": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "aux_channel_names": [
+        "AUX 2_1",
+        "AUX 2_2",
+        "AUX 2_3",
+        "AUX 2_4"
+      ],
+      "aux_channel_count": 4,
+      "masseter_gate_capable": true,
+      "masseter_gate_status": "完整 AUX1-AUX4，可用于咬肌门控",
+      "files": [
+        "e:\\世界机器人大赛\\projects\\arm_bci_robot\\data\\recordings\\2026-07-26\\12-27-01_pure_mi.npz"
+      ]
+    },
+    "masseter_gate_capable": true
+  },
+  "class_names": {
+    "1": "左手运动想象",
+    "2": "右手运动想象",
+    "3": "双手运动想象",
+    "4": "双脚运动想象",
+    "5": "左手握拳",
+    "6": "右手握拳",
+    "7": "双手握拳",
+    "8": "双脚执行"
   }
 }

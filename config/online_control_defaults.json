@@ -1,0 +1,32 @@
+{
+  "robot_enabled": false,
+  "input_mode": "manual",
+  "robot_host": "192.168.1.100",
+  "robot_port": 9526,
+  "translation_speed": 51.0,
+  "rotation_speed": 20.0,
+  "window1_seconds": 2.0,
+  "window2_seconds": 0.95,
+  "window2_count": 1,
+  "continuous_speed": 0.2,
+  "window3_seconds": 1.0,
+  "window3_count": 8,
+  "orientation_min": {
+    "pitch": -360.0,
+    "yaw": -360.0,
+    "roll": -360.0
+  },
+  "orientation_max": {
+    "pitch": 360.0,
+    "yaw": 360.0,
+    "roll": 360.0
+  },
+  "translation_limits_mm": {
+    "forward": 1000.0,
+    "backward": 1000.0,
+    "left": 1000.0,
+    "right": 1000.0,
+    "up": 1000.0,
+    "down": 1000.0
+  }
+}
