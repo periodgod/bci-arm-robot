@@ -188,7 +188,7 @@ python -m unittest discover -s tests -v
 
 ## 在项目群中的位置
 
-离线读取、预处理、交叉验证与报告沉淀统一走 [bci-bench](https://github.com/periodgod/bci-bench)；本项目只保留与机械臂应用直接相关的入口与契约。同源范式另有 [bci-visual-app](https://github.com/periodgod/bci-visual-app)（SSVEP 脑控小车）与 [bci-rehab](https://github.com/periodgod/bci-rehab)（康复训练）。
+离线读取、预处理、交叉验证与报告沉淀统一走 [bci-bench](https://github.com/periodgod/bci-bench)；本项目只保留与机械臂应用直接相关的入口与契约。同源范式另有 [bci-visual-app](https://github.com/periodgod/bci-visual-app)（SSVEP 脑控小车）。
 
 ---
 
